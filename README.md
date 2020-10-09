@@ -29,3 +29,36 @@ class Solution {
 }
 
 ```
+### [1476. 子矩形查询](https://leetcode-cn.com/problems/subrectangle-queries/)
+- 这题目很简单，难在题目太过冗长。
+#### 第一种是暴力解法
+能通过。
+```java
+class SubrectangleQueries {
+
+    private int[][] rec = null;
+    public SubrectangleQueries(int[][] rectangle) {
+        this.rec = rectangle;
+    }
+    
+    public void updateSubrectangle(int row1, int col1, int row2, int col2, int newValue) {
+        if(rec != null){
+            for(int i = row1; i <= row2; ++ i){
+                for(int j = col1; j <= col2; ++ j){
+                    rec[i][j] = newValue;
+                }
+            }
+        }
+    }
+    
+    public int getValue(int row, int col) {
+        if(rec != null){
+            return rec[row][col];
+        }
+        return -1;
+    }
+}
+
+```
+
+#### 第二种解法。高赞题解中，记录之前更新的值，如果getValue(location) location在之前更新的子矩阵范围内，可以直接返回相应value
