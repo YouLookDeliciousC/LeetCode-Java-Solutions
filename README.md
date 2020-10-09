@@ -62,3 +62,38 @@ class SubrectangleQueries {
 ```
 
 #### 第二种解法。高赞题解中，记录之前更新的值，如果getValue(location) location在之前更新的子矩阵范围内，可以直接返回相应value
+### [977. 有序数组的平方](https://leetcode-cn.com/problems/squares-of-a-sorted-array/)
+- 暴力解法，每个平方完之后sort排序
+```java
+class Solution {
+    public int[] sortedSquares(int[] A) {
+        for(int i = 0; i < A.length; ++ i){
+            A[i] = A[i] * A[i];
+        }
+        Arrays.sort(A);
+        return A;
+    }
+}
+```
+
+- 双指针法
+```java
+class Solution {
+    public int[] sortedSquares(int[] A) {
+        int l = 0, r = A.length-1, k = r;
+        int[] B = new int[A.length];
+        while(l <= r){
+            if(A[l] + A[r] > 0){
+                B[k--] = A[r] * A[r];
+                r--;
+            }else{
+                B[k--] = A[l] * A[l];
+                l++;
+            }
+        }
+        return B;
+    }
+}
+```
+
+### []()
