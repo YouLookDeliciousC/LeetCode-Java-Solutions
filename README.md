@@ -9,5 +9,23 @@ This repository is used to summarize all the leetcode algorithms that have been 
 - 此外还有一份体量相对完善的[Clearest-LeetCode-Cpp-Solutions](https://github.com/YouLookDeliciousC/Clearest-LeetCode-Cpp-Solutions)，尽量使用不冗余的解法，用CPP解决leetcode官方探索题。目前已经基本完成了探索内的数据类型模块。
 - 欢迎加入QQ交流群：902025048 群内提供更多相关资料，更有刷题大牛为你解答疑问~
 - 推荐使用【Ctrl + F】按键搜索题号
+- Leetcode Acccount: [youlookdeliciousc](https://leetcode-cn.com/u/youlookdeliciousc/)
 # 题目部分
 ## 数组
+### [867. 转置矩阵](https://leetcode-cn.com/problems/transpose-matrix/)
+```java
+class Solution {
+    public int[][] transpose(int[][] A) {
+        int c = A.length, r = A[0].length;
+
+        int[][] B = new int[r][c];
+        for(int i = 0; i < c; ++ i){
+            for(int j = 0; j < r; ++ j){
+                B[j][i] = A[i][j]; //B[i][j] = A[j][i] 会超出索引。
+            }
+        }
+        return B;
+    }
+}
+
+```
