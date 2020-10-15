@@ -96,6 +96,8 @@ class Solution {
 }
 ```
 
+## 数组
+
 ### [1576. 替换所有的问号](https://leetcode-cn.com/problems/replace-all-s-to-avoid-consecutive-repeating-characters/)
 ```java
 class Solution {
@@ -129,9 +131,15 @@ class Solution {
 
 
 
-### []()
-
-
+### [459. 重复的子字符串](https://leetcode-cn.com/problems/repeated-substring-pattern/)
+```java
+class Solution {
+    public boolean repeatedSubstringPattern(String s) {
+        return (s+s).substring(1,s.length()*2-1).indexOf(s)!=-1;
+    }
+}
+```
+- 解析待添加
 
 ### []()
 
