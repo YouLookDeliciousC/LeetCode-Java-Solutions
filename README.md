@@ -96,4 +96,48 @@ class Solution {
 }
 ```
 
+### [1576. 替换所有的问号](https://leetcode-cn.com/problems/replace-all-s-to-avoid-consecutive-repeating-characters/)
+```java
+class Solution {
+    public String modifyString(String s) {
+        int len = s.length();
+        
+        if(len == 1) return "a";
+        char[] schar = s.toCharArray();
+        for(int i = 0; i < len; i ++){
+
+            if(schar[i] == '?'){
+                if(i > 0 && i < len -1){
+                    char temp = 'a';
+                    schar[i] = temp;
+                    while(schar[i-1] == temp || schar[i + 1] == temp){
+                        schar[i] = ++ temp;
+                    }
+                }else if(i == 0){
+                    schar[i] = schar[i+1] == 'a' ? 'b': 'a';
+                }else{
+                    schar[i] = schar[i-1] == 'a' ? 'b': 'a';
+                }
+            }
+        }
+        s = new String(schar);
+        return s;
+    }
+}
+```
+- 这题我写得有点冗长，观评论区大佬有人直接用`while ( (i < s.size()-1 && s[i]==s[i+1]) || (i > 0 && s[i] == s[i-1])) `这一行代码可以缩减掉好几个if判断语句。
+
+
+
+### []()
+
+
+
+### []()
+
+
+
+### []()
+
+
 ### []()
